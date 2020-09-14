@@ -9,14 +9,14 @@
 #include "vex.h" //****Note that this currently is just a copy of the previous years code
 
 using namespace vex;
-motor leftFrontMotor(PORT19, gearSetting::ratio18_1, true);
-motor rightFrontMotor(PORT20, gearSetting::ratio18_1, true);
+motor leftFrontMotor(PORT11, gearSetting::ratio18_1, true);
+motor rightFrontMotor(PORT1, gearSetting::ratio18_1, true);
 
-motor leftBackMotor(PORT10, gearSetting::ratio18_1, true);
-motor rightBackMotor(PORT9, gearSetting::ratio18_1, true);
+motor leftBackMotor(PORT20, gearSetting::ratio18_1, true);
+motor rightBackMotor(PORT10, gearSetting::ratio18_1, true);
 //testing testing
-motor intakeLeft(PORT11, gearSetting::ratio18_1, true);
-motor intakeRight(PORT1, gearSetting::ratio18_1, true);
+motor intakeLeft(PORT12, gearSetting::ratio18_1, true);
+motor intakeRight(PORT2, gearSetting::ratio18_1, true);
 
 motor lift(PORT18, gearSetting::ratio18_1, true);
 
