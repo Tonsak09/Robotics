@@ -42,10 +42,10 @@ int main() {
 
     while(isControlled == true) 
     { //pure minus maybe?
-            rightFrontMotor.spin(vex::directionType::fwd, (Controller1.Axis3.value() - Controller1.Axis4.value())/2, vex::velocityUnits::pct);
-            leftFrontMotor.spin(vex::directionType::rev, (Controller1.Axis3.value() + Controller1.Axis4.value())/2, vex::velocityUnits::pct);
-            rightBackMotor.spin(vex::directionType::fwd, (Controller1.Axis3.value() - Controller1.Axis4.value())/2, vex::velocityUnits::pct);
-            leftBackMotor.spin(vex::directionType::rev, (Controller1.Axis3.value() + Controller1.Axis4.value())/2, vex::velocityUnits::pct);
+            rightFrontMotor.spin(vex::directionType::fwd, (Controller1.Axis3.value() - Controller1.Axis4.value())/4, vex::velocityUnits::pct);
+            leftFrontMotor.spin(vex::directionType::rev, (Controller1.Axis3.value() + Controller1.Axis4.value())/4, vex::velocityUnits::pct);
+            rightBackMotor.spin(vex::directionType::fwd, (Controller1.Axis3.value() - Controller1.Axis4.value())/4, vex::velocityUnits::pct);
+            leftBackMotor.spin(vex::directionType::rev, (Controller1.Axis3.value() + Controller1.Axis4.value())/4, vex::velocityUnits::pct);
             if(((Controller1.Axis2.value() - Controller1.Axis1.value()) / 2) != 0)
             {
               lift.spin(vex::directionType::fwd, (Controller1.Axis2.value() - Controller1.Axis1.value()) / 3.2, vex::velocityUnits::pct);
