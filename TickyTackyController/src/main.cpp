@@ -77,8 +77,8 @@ int main() {
             }
             else if(Controller1.ButtonX.pressing() == true)
             {
-              liftRight.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);
-              liftLeft.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);
+              liftRight.spin(vex::directionType::fwd, (-intakeSpeed2), vex::velocityUnits::pct);
+              liftLeft.spin(vex::directionType::fwd, (-intakeSpeed2), vex::velocityUnits::pct);
             }
             else if(Controller1.ButtonB.pressing() == true)
             { 
@@ -87,8 +87,8 @@ int main() {
             }
             else if(Controller1.ButtonY.pressing() == true)
             { 
-              intakeLeft.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);
-              intakeRight.spin(vex::directionType::fwd, (intakeSpeed2), vex::velocityUnits::pct);  
+              intakeLeft.spin(vex::directionType::fwd, (-intakeSpeed2), vex::velocityUnits::pct);
+              intakeRight.spin(vex::directionType::rev, (-intakeSpeed2), vex::velocityUnits::pct);  
             }
             else
             {
