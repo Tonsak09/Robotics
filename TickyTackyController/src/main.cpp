@@ -77,7 +77,7 @@ int main() {
             }
             else if(Controller1.ButtonB.pressing() == true)
             { 
-              intakeLeft.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);
+              intakeLeft.spin(vex::directionType::fwd, (intakeSpeed2), vex::velocityUnits::pct);
               intakeRight.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);  
             }
             else
