@@ -70,11 +70,17 @@ int main() {
         rightBackMotor.spin(vex::directionType::fwd, (Controller1.Axis3.value() - Controller1.Axis4.value()) * speed, vex::velocityUnits::pct);
         leftBackMotor.spin(vex::directionType::rev, (Controller1.Axis3.value() + Controller1.Axis4.value()) * speed, vex::velocityUnits::pct);
             
-      //if(((Controller1.Axis2.value() / 127) >= -0.2f) && ((Controller1.Axis2.value() / 127) <= 0.2f))
-      //{
-        //liftRight.spin(vex::directionType::fwd, (Controller1.Axis2.value() - Controller1.Axis4.value()) * speed, vex::velocityUnits::pct);
-        //liftLeft.spin(vex::directionType::fwd, (Controller1.Axis3.value() + Controller1.Axis4.value())  * speed, vex::velocityUnits::pct);
-      //}
+        if(Controller1.ButtonA.pressing() == true)
+            {
+              liftRight.spin(vex::directionType::fwd, (intakeSpeed2), vex::velocityUnits::pct);
+              liftLeft.spin(vex::directionType::fwd, (intakeSpeed2), vex::velocityUnits::pct);
+            }
+            else if(Controller1.ButtonB.pressing() == true)
+            { 
+              intakeLeft.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);
+              intakeRight.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);  
+            }
+      
     }
     /*if(Controller1.ButtonA.pressing() == true)
             {
