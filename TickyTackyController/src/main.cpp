@@ -18,7 +18,7 @@ motor rightBackMotor(PORT12, gearSetting::ratio18_1, true);
 motor intakeLeft(PORT15, gearSetting::ratio18_1, true);
 motor intakeRight(PORT2, gearSetting::ratio18_1, true);
 
-motor liftLeft(PORT20, gearSetting::ratio18_1, true);
+motor liftLeft(PORT16, gearSetting::ratio18_1, true);
 motor liftRight(PORT10, gearSetting::ratio18_1, true);
 
 
