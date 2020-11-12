@@ -34,9 +34,7 @@ vex::brain       Brain;
 
 // define your global instances of motors and other devices here
 
-float speed;;
-float speedModSlow = 0.1f;
-float speedModFast = 0.9f;
+float speed = 0.6f;
 
 float intakeSpeed2 = 25.1;;
 
@@ -55,15 +53,6 @@ int main() {
       unitCircle[0] = Controller1.Axis4.value() / 127;
       unitCircle[1] = Controller1.Axis3.value() / 127;
       */
-
-      if(((Controller1.Axis4.value() / 127) >= -0.2f) && ((Controller1.Axis4.value() / 127) <= 0.2f))
-      {
-        speed = speedModFast;
-      }
-      else
-      {
-        speed = speedModSlow;
-      }
       
         rightFrontMotor.spin(vex::directionType::fwd, (Controller1.Axis3.value() - Controller1.Axis4.value()) * speed, vex::velocityUnits::pct);
         leftFrontMotor.spin(vex::directionType::rev, (Controller1.Axis3.value() + Controller1.Axis4.value()) * speed, vex::velocityUnits::pct);
@@ -73,27 +62,33 @@ int main() {
         if(Controller1.ButtonA.pressing() == true)
             {
               liftRight.spin(vex::directionType::fwd, (intakeSpeed2), vex::velocityUnits::pct);
-              liftLeft.spin(vex::directionType::fwd, (intakeSpeed2), vex::velocityUnits::pct);
+              liftLeft.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);
             }
             else if(Controller1.ButtonX.pressing() == true)
             {
               liftRight.spin(vex::directionType::fwd, (-intakeSpeed2), vex::velocityUnits::pct);
-              liftLeft.spin(vex::directionType::fwd, (-intakeSpeed2), vex::velocityUnits::pct);
+              liftLeft.spin(vex::directionType::rev, (-intakeSpeed2), vex::velocityUnits::pct);
             }
             else if(Controller1.ButtonB.pressing() == true)
             { 
-              intakeLeft.spin(vex::directionType::fwd, (intakeSpeed2), vex::velocityUnits::pct);
-              intakeRight.spin(vex::directionType::rev, (intakeSpeed2), vex::velocityUnits::pct);  
+              intakeLeft.spin(vex::directionType::fwd, (intakeSpeed2) * 2, vex::velocityUnits::pct);
+              intakeRight.spin(vex::directionType::rev, (intakeSpeed2)* 2, vex::velocityUnits::pct);  
             }
             else if(Controller1.ButtonY.pressing() == true)
             { 
-              intakeLeft.spin(vex::directionType::fwd, (-intakeSpeed2), vex::velocityUnits::pct);
-              intakeRight.spin(vex::directionType::rev, (-intakeSpeed2), vex::velocityUnits::pct);  
+              intakeLeft.spin(vex::directionType::fwd, (-intakeSpeed2)* 2, vex::velocityUnits::pct);
+              intakeRight.spin(vex::directionType::rev, (-intakeSpeed2)* 2, vex::velocityUnits::pct);  
             }
             else
             {
               intakeLeft.spin(vex::directionType::rev, 0, vex::velocityUnits::pct);
               intakeRight.spin(vex::directionType::rev, 0, vex::velocityUnits::pct);  
+
+              liftRight.spin(vex::directionType::fwd, 0, vex::velocityUnits::pct);
+              liftLeft.spin(vex::directionType::rev, 0, vex::velocityUnits::pct);
+
+              liftRight.stop(brakeType::hold);
+              liftLeft.stop(brakeType::hold);
             }
       
     }
